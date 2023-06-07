@@ -108,33 +108,94 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 ### PROGRAM 
 /*
+```
+SR FLIPFLOP:
+module srf(S,R,clk,Q,Qbar);
+input S,R,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+	Q=S|((~R)&Q);
+	Qbar=R|((~S)&(~Q));
+end
+endmodule
+
+T FLIPFLOP:
+module tflip(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+    Q=(T&(~Q))|((~T)&Q);
+    Qbar=~Q;
+end
+endmodule
+
+D FLIPFLOP:
+module dflip(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+    Q=D;
+    Qbar=~Q;
+end
+endmodule
+
+JK FLIPFLOP:
+module jkflip(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+    Q=(J&(~Q))|((~K)&Q);
+    Qbar=~Q;
+end
+endmodule
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: KOUSALYA A.
+RegisterNumber:  212222230068
 */
-
-
-
-
-
-
 ### RTL LOGIC FOR FLIPFLOPS 
+ SR flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](srflip2.jpg)
 
+ T flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](tflip2.jpg)
 
+ D flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](dflip2.jpg)
 
-
-
-
-
+ JK flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](jkflip2.jpg)
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+SR flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](srflip1.jpg)
 
+ T flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](tflip1.jpg)
 
+ D flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](dflip1.jpg)
 
-
-
-
+ JK flipflop:
+![Experiment--05-Implementation-of-flipflops-using-verilog](jkflip1.jpg)
 
 
 ### RESULTS 
+    Thus the program for flipflops are successfully executed.
